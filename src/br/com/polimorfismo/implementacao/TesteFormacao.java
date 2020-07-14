@@ -25,8 +25,8 @@ public class TesteFormacao {
 						CaixaDialogo.t("Descrição:"),
 						CaixaDialogo.i("Período:"),
 						0,
-						CaixaDialogo.i("Duração:"),
-						CaixaDialogo.t("Tipo:")
+						0,
+						CaixaDialogo.t("Regular ou Técnico?")
 						);
 			}
 			else if(decisao == 'T') {
@@ -34,8 +34,8 @@ public class TesteFormacao {
 						CaixaDialogo.t("Descrição:"),
 						CaixaDialogo.i("Período:"),
 						0,
-						CaixaDialogo.i("Duração:"),
-						true
+						0,
+						CaixaDialogo.b("Plano Estendido?")
 						);
 			}
 			else if(decisao == 'B') {
@@ -43,17 +43,21 @@ public class TesteFormacao {
 						CaixaDialogo.t("Descrição:"),
 						CaixaDialogo.i("Período:"),
 						0,
-						CaixaDialogo.i("Duração:"),
+						0,
 						CaixaDialogo.t("Projeto de Conclusão:"),
-						CaixaDialogo.i("Carga Horária:")
+						CaixaDialogo.i("Carga Horária de Estágio:")
 						);
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "Operação Inexistente!");
 			}
+			
+			formacao.definirDuracao();
+			formacao.calcularMensalidade(CaixaDialogo.f("Digite o fator:"));
 			System.out.println(formacao.getAll());
+			System.out.println("-------------------------------");
+			
 		} while((JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Atenção!", JOptionPane.YES_NO_CANCEL_OPTION) == 0));
-		
 	}
 
 }

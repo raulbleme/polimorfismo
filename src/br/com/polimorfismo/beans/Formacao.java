@@ -1,8 +1,9 @@
 package br.com.polimorfismo.beans;
 
-public class Formacao {
+//Garante que ela seja instanciada pelas classes filhas e não possa ser instaciada sozinha com Formacao obj = new Formacao();
+public abstract class Formacao {
 
-	private String descricao;
+	private String descricao = new String(); //ou private String descricao = "";
 	private int periodo;
 	private double mensalidade;
 	private int duracao;
@@ -59,6 +60,10 @@ public class Formacao {
 		this.duracao = duracao;
 	}
 	
+	//método exibirMedia() respeita o POLIMORFISMO. Um método, várias funções.
+	// Overload(sobrecarga): Varios métodos com o mesmo nome, mas com construções diferentes, dentro da mesma classe.
+	// Override(sobrescrita): Métodos iguais mas em classes diferentes
+	
 	public double exibirMedia(double ps1, double ps2) {
 		return (ps1 + ps2)/2;
 	}
@@ -87,4 +92,6 @@ public class Formacao {
 			}
 		}
 	}
+	
+	public void calcularMensalidade(double fator) {}
 }
