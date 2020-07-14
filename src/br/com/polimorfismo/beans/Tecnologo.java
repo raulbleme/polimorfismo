@@ -1,6 +1,8 @@
 package br.com.polimorfismo.beans;
 
-public class Tecnologo extends Formacao{
+import br.com.polimorfismo.padroes.PadraoFormacao;
+
+public class Tecnologo extends Formacao implements PadraoFormacao{
 
 	private boolean planoEstendido;
 	
@@ -39,6 +41,12 @@ public class Tecnologo extends Formacao{
 		super.setMensalidade(
 				getDuracao() * fator * 600
 				);
+	}
+
+	@Override
+	public void cadastrar(Formacao formacao) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
